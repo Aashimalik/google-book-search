@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 
 app.get('/author/:authorName',function(req,res){
     var author=req.params.authorName;
-    book.search("inauthor=" + author, function(error, results) {
+    book.search(author, function(error, results) {
         if ( ! error ) {
             // console.log(results);
             res.send(results);
@@ -27,7 +27,7 @@ app.get('/author/:authorName',function(req,res){
 
 app.get('/title/:titleName',function(req,res){
     var title=req.params.titleName;
-    book.search("intitle=" + title, function(error, results) {
+    book.search( title, function(error, results) {
         if ( ! error ) {
             // console.log(results);
             res.send(results);
