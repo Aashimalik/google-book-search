@@ -1,0 +1,17 @@
+{
+  "name": "kvantum",
+  "version": "1.0.0",
+  "description": "web application to search and display books ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index"
+  },
+  "author": "Abhishek Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "google-books-search": "^0.3.1",
+    "morgan": "^1.9.0"
+  }
+}
