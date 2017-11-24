@@ -1,7 +1,7 @@
 const express=require('express');
 const http=require('http');
 const morgan=require('morgan');
-var book = require("google-books-search");
+var dns = require ( 'dns' )
 
 const app=express();
 
@@ -10,35 +10,22 @@ var port=3000 ;
 app.use(morgan('dev'));
 
 
-app.get('/author/:authorName',function(req,res){
-    var author=req.params.authorName;
-    book.search(author, function(error, results) {
-        if ( ! error ) {
-            // console.log(results);
-            res.send(results);
-            }
-        else {
-            console.log(error);
-        }
-    })
     
 
-});
 
-app.get('/title/:titleName',function(req,res){
-    var title=req.params.titleName;
-    book.search( title, function(error, results) {
-        if ( ! error ) {
-            // console.log(results);
-            res.send(results);
-            }
-        else {
-            console.log(error);
-        }
-    })
-    
 
-});
+app.get('/check',function(req,res){
+    url=req.params.url;
+    dns.resolve4( url, function (err, addresses) {
+        if (err) console.log (url + " is possibly available : " + err)
+})
+ res.json({
+     msg:"available"
+ });
+  })
+
+      
+checkAvailable( "ohwellhaithar.com" )
 
 
 app.use((req,res)=>{
